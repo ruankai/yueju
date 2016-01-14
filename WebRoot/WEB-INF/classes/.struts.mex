@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="basicstruts2" location="228,10" size="525,455">
+    <action name="page_*" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="{1}.jsp" />
+      </result>
+    </action>
+    <action name="home1_*" location="65,163" size="150,40">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="home1.jsp" />
+      </result>
+    </action>
+    <action name="yueju1_*" location="65,268" size="150,40" />
+    <action name="header_*" location="310,268" size="150,40" />
+    <action name="text1_*" location="310,372" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="text2.jsp" />
+      </result>
+    </action>
+    <action name="topic_*" location="0,0" size="0,0">
+      <result name="findAll">
+        <resourceEdge source="findAll" routing="0" target="listTopics.jsp" />
+      </result>
+      <result name="add" />
+      <result name="findById">
+        <resourceEdge source="findById" routing="0" target="showTopic.jsp" />
+      </result>
+    </action>
+    <action name="reply_*" location="0,0" size="0,0">
+      <result name="add" />
+    </action>
+    <action name="sihuoju_*" location="0,0" size="0,0">
+      <result name="findAll">
+        <resourceEdge source="findAll" routing="0" target="listSihuoju.jsp" />
+      </result>
+      <result name="findById">
+        <resourceEdge source="findById" routing="0" target="showSihuoju.jsp" />
+      </result>
+      <result name="mysihuoju">
+        <resourceEdge source="mysihuoju" routing="0" target="mySihuoju.jsp" />
+      </result>
+    </action>
+    <action name="sihuojujoin_*" location="0,0" size="0,0">
+      <result name="find" />
+      <result name="findAll" />
+    </action>
+  </package>
+  <webResource name="{1}.jsp" path="/WEB-INF/page/{1}.jsp" location="10,30" size="150,55" />
+  <webResource name="text2.jsp" path="/WEB-INF/page/text2.jsp" location="808,345" size="150,55" />
+  <webResource name="listTopics.jsp" path="/WEB-INF/page/listTopics.jsp" location="0,0" size="0,0" />
+  <webResource name="showTopic.jsp" path="/WEB-INF/page/showTopic.jsp" location="0,0" size="0,0" />
+  <webResource name="home1.jsp" path="/WEB-INF/page/home1.jsp" location="0,0" size="0,0" />
+  <webResource name="listSihuoju.jsp" path="/WEB-INF/page/listSihuoju.jsp" location="0,0" size="0,0" />
+  <webResource name="showSihuoju.jsp" path="/WEB-INF/page/showSihuoju.jsp" location="0,0" size="0,0" />
+  <webResource name="mySihuoju.jsp" path="/WEB-INF/page/mySihuoju.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+    
+	<package name="MingRenTang" namespace="/" extends="struts-default">
+		<action name="mingrenPage_*">
+			<result type="dispatcher">/WEB-INF/page/mingrentang/{1}.jsp</result>
+		</action>
+		<action name="mingrenPage2_*" class="mingrentang.web.action.mingrenIndexAction">
+			<param name="id">{1}</param>
+			<result type="dispatcher">/WEB-INF/page/mingrentang/mrtMember.jsp</result>
+		</action>
+		<action name="mingrentang_*" class="mingrentang.web.action.mingrenIndexAction" method="{1}">
+
+		</action>
+	</package>
+
+</struts>

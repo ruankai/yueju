@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<package name="basicstruts2" namespace="/" extends="struts-default">
+
+		<global-results>
+			<result name="login">/WEB-INF/page/login.jsp</result>
+			<result name="home1">/WEB-INF/page/home1.jsp</result>
+		</global-results>
+		<action name="page_*">
+			<result type="dispatcher">/WEB-INF/page/{1}.jsp</result>
+		</action>
+		
+		<action name="home1_*" class="yueju.web.action.HomeAction"
+			method="{1}">
+			<result name="success">/WEB-INF/page/home1.jsp</result>
+		</action>
+		
+	
+		<action name="yueju1_*" class="yueju.web.action.YueJuAction"
+			method="{1}">
+		</action>
+		<action name="header_*" class="yueju.web.action.HeaderAction"
+			method="{1}">
+
+		</action>
+		
+		<action name="photo1_*" class="yueju.web.action.PhotoAction" method="{1}">
+		<!-- 	<result name="list"></result> -->
+		</action>
+		<action name="song1_*" class="yueju.web.action.SongAction" method="{1}">
+		</action>
+		
+		
+		<action name="news_*" class="yueju.web.action.NewsAction"
+			method="{1}">
+			<result name="findAll">/WEB-INF/page/newsAll.jsp</result>
+			<result name="findById">/WEB-INF/page/newsDetail.jsp</result>
+		</action>
+		
+		
+		<action name="text1_*" class="yueju.web.action.TextAction"
+			method="{1}">
+			<result name="success">/WEB-INF/page/text2.jsp</result>
+		</action>
+		<action name="topic_*" class="yueju.web.action.TopicAction"
+			method="{1}">
+			<result name="findAll">/WEB-INF/page/listTopics.jsp</result>
+			<!-- 3.2 添加成功 ,重定向到查询所有-->
+			<result name="add" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">topic_findAll</param>
+			</result>
+			<result name="findById">/WEB-INF/page/showTopic.jsp</result>
+		</action>
+		<action name="reply_*" class="yueju.web.action.ReplyAction"
+			method="{1}">
+			<!-- 4.1 添加成功 ,重定向到通过id查询主题-->
+			<result name="add" type="redirectAction">topic_findById?id=${topic.id}</result>
+		</action>
+		<action name="sihuoju_*" class="yueju.web.action.SiHuoJuAction"
+			method="{1}">
+			<result name="findAll">/WEB-INF/page/listSihuoju.jsp</result>
+			<result name="findById">/WEB-INF/page/showSihuoju.jsp</result>
+			<result name="mysihuoju">/WEB-INF/page/mySihuoju.jsp</result>
+		</action>
+		<action name="sihuojujoin_*" class="yueju.web.action.SiHuoJuJoinAction"
+			method="{1}">
+		 <result name="find" type="redirectAction">sihuoju_findById?id=${sihuojuinfo.id}</result>
+		 <result name="findAll" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">sihuoju_findAll</param>
+			</result>
+		</action>
+	</package>
+	<include file="mingrentang.xml"></include>
+</struts>
